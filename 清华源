@@ -10,9 +10,6 @@ cnpm install -D unplugin-vue-components unplugin-auto-import
 cnpm install unplugin-element-plus
 
 
-引入请求
-cnpm install axios
-
 引入路由
 cnpm install vue-router
 
@@ -26,3 +23,10 @@ cnpm install element-plus --save
 
 安装插件
 cnpm install unplugin-vue-components
+
+安装图标
+cnpm install element-plus @element-plus/icons-vue
+
+
+引入请求
+cnpm install axios

@@ -70,7 +70,9 @@
 <script setup>
 import {ref, reactive} from "vue"
 import {HelpFilled, Tools, TrendCharts} from '@element-plus/icons-vue'
-
+import router from "../../router/index.js";
+import {useRouter} from 'vue-router'
+const  route = useRouter(); // 加括号() 这里不使用 router  被遗弃了
 const ruleForm = reactive({
   name: '',
   pass: '',
@@ -78,7 +80,7 @@ const ruleForm = reactive({
 const ruleFormRef = ref()
 
 
-// 校验
+// 校验 用户名密码
 const rules = reactive(
     {
       name: [
@@ -91,6 +93,27 @@ const rules = reactive(
       ],
     }
 )
+
+// 触发登录,数据提交
+function submitForm(formEl)
+    {
+      // 校验
+      // 参数是ruleFormRef
+      formEl.validate(valid=>{
+        if(valid){
+          console.log('OK');
+        // 发送请求
+        // 跳转到首页 跳转先引用
+          route.push('/home');
+        }
+        else {
+          console.log('err')
+        }
+      })
+
+
+    }
+
 </script>
 
 

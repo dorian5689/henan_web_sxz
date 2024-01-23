@@ -7,7 +7,10 @@ const obj = reactive({name:'首页'})
 </script>
 
 <template>
-  {{obj.name}}
+  <h1>
+    1233333333
+    {{obj.name}}
+  </h1>
 
 </template>
 
