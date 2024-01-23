@@ -4,18 +4,64 @@
     <!--登录内容-->
     <div class="login-content">
       <!--相关模块/相关样式-->
+      <!--      <div class="login-item  login-box">-->
+      <!--        <i>-->
+      <!--          &lt;!&ndash;字体图标,可以使用element-plus&ndash;&gt;-->
+      <!--          <el-icon>-->
+      <!--            <HelpFilled></HelpFilled>-->
+      <!--          </el-icon>-->
+      <!--        </i>-->
+      <!--        <p>OMS上报</p>-->
+      <!--      </div>-->
+
+
+      <!--      <div class="login-item  login-box">-->
+      <!--        <i>-->
+      <!--          &lt;!&ndash;字体图标,可以使用element-plus&ndash;&gt;-->
+      <!--          <el-icon>-->
+      <!--            <Tools></Tools>-->
+      <!--          </el-icon>-->
+      <!--        </i>-->
+      <!--        <p>数据采集</p>-->
+      <!--      </div>-->
+
+      <!--登录表单-->
       <div class="login-item  login-box">
-        <i>
-          <!--字体图标,可以使用element-plus-->
-          <el-icon>
-            <HelpFilled></HelpFilled>
-            <Tools></Tools>
-            <Grid></Grid>
-            <TrendCharts></TrendCharts>
-          </el-icon>
-        </i>
-        <p>软件平台</p>
+        <p class="login-title">双细则电量监控</p>
+        <!--对象model,给v-model 用呢给script 定义-->
+        <el-form
+            ref="ruleFormRef"
+            :model="ruleForm"
+            status-icon
+            :rules="rules"
+            label-width="120px"
+            class="demo-ruleForm"
+        >
+
+          <el-form-item label="用户名" prop="name">
+            <el-input v-model="ruleForm.name"/>
+          </el-form-item>
+
+          <el-form-item label="密码" prop="pass">
+            <el-input v-model="ruleForm.pass" type="password" autocomplete="off"/>
+          </el-form-item>
+
+          <el-form-item>
+            <!--对应ref="ruleFormRef"-->
+            <el-button type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
+          </el-form-item>
+        </el-form>
       </div>
+
+      <!--      <div class="login-item  login-box">-->
+      <!--        <i>-->
+      <!--          &lt;!&ndash;字体图标,可以使用element-plus&ndash;&gt;-->
+      <!--          <el-icon>-->
+      <!--            <TrendCharts></TrendCharts>-->
+      <!--          </el-icon>-->
+      <!--        </i>-->
+      <!--        <p>软件平台</p>-->
+      <!--      </div>-->
 
     </div>
   </div>
@@ -23,8 +69,28 @@
 
 <script setup>
 import {ref, reactive} from "vue"
-import {HelpFilled,Tools,Grid,TrendCharts} from '@element-plus/icons-vue'
+import {HelpFilled, Tools, TrendCharts} from '@element-plus/icons-vue'
 
+const ruleForm = reactive({
+  name: '',
+  pass: '',
+});
+const ruleFormRef = ref()
+
+
+// 校验
+const rules = reactive(
+    {
+      name: [
+        {required: true, message: '请输入用户名', trigger: 'blur'},
+        {min: 3, max: 8, message: '长度为3-8位', trigger: 'blur'},
+      ],
+      pass: [
+        {required: true, message: '请输入密码', trigger: 'blur'},
+        {min: 3, max: 8, message: '长度为3-8位', trigger: 'blur'},
+      ],
+    }
+)
 </script>
 
 
