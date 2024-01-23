@@ -2,8 +2,6 @@
 切换淘宝源
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-安装element-plus
-cnpm install element-plus --save
 
 按需导入
 cnpm install -D unplugin-vue-components unplugin-auto-import
@@ -22,3 +20,9 @@ cnpm install vue-router
 快捷键
 格式化代码
 ctrl + alt + L
+
+安装element-plus
+cnpm install element-plus --save
+
+安装插件
+cnpm install unplugin-vue-components
