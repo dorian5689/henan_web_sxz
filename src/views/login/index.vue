@@ -1,31 +1,39 @@
-
 <!-- 这里是大于3.2-->
-<script  setup>
+<script setup>
 // 响应式对象 reactive,defineComponent 对整个对象更好的类型提示,TS
-import {reactive} from "vue";
-
+import {ref,reactive} from "vue";
+// ref  怎么用 对象
+// const n = ref(0) // const n 为只读属性
+let n = ref(0) // 本质  const n = reactive({value:0})
 // 不要要包含到 state中
-const obj = reactive({id:1})
-const  arr = reactive(      [
-          {title:'标题',id:1},
-          {title:'标题',id:2},
-          {title:'标题',id:3},
-      ])
+const obj = reactive({id: 1}) // 响应式数据对象
+const arr = reactive([
+  {title: '标题', id: 1},
+  {title: '标题', id: 2},
+  {title: '标题', id: 3},
+])
 
 // 没有state
-const  add=()=>{
-  arr.push({title: '标题',
-  id:arr.length+1})
+// 数字点击加1 双方一块加
+const add = () => {
+  // 数字相加
+  obj.id+=1;
+  n.value++; // ref n 为只包含value 属性
+  // arr.push({
+  //   title: '标题',
+  //   id: arr.length + 1
+  // }
+  // )
 }
 // 不需要返回了
 </script>
 
 <template>
   <h1>
-    {{obj.id}}
+    {{ obj.id }}==={{n}}
   </h1>
   <ul>
-    <li v-for="(v,i) in arr":key="v.id">{{v.title}}
+    <li v-for="(v,i) in arr" :key="v.id">{{ v.title }}
     </li>
   </ul>
   <el-button type="primary" @click="add">添加数据</el-button>
