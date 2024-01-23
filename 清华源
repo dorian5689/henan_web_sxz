@@ -11,3 +11,14 @@ cnpm install -D unplugin-vue-components unplugin-auto-import
 引入组件
 cnpm install unplugin-element-plus
 
+
+引入请求
+cnpm install axios
+
+引入路由
+cnpm install vue-router
+
+
+快捷键
+格式化代码
+ctrl + alt + L
