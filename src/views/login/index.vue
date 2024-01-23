@@ -6,7 +6,10 @@ const obj = reactive({name:'登录'})
 </script>
 
 <template>
-  {{obj.name}}
+  <h1>
+      {{obj.name}}
+  </h1>
+  <el-button type="primary">Primary</el-button>
 
 </template>
 
